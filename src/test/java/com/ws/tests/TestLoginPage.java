@@ -2,7 +2,6 @@ package com.ws.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.ws.base.DriverScript;
 import com.ws.page.HomePage;
 import com.ws.page.LoginPage;
@@ -36,6 +35,25 @@ public class TestLoginPage extends DriverScript {
         driver.quit();
         
 	}
+	@Test
+	
+	public void isForgotpasswordLinkPresent() 
+	{
+      initApplication();
+      HomePage homePage = new HomePage();
+     LoginPage loginPage = new LoginPage();
+     String loginPageTitle = loginPage.getLoginPageTitle();
+     Assert.assertTrue(loginPageTitle.contains("Login"));
+     boolean flag = loginPage.isForgotpasswordLInkPresent();
+     Assert.assertTrue(flag);
+     homePage.clickLogout();
+     driver.quit();
+     
+     
+      
+	}
+
+	
 	
 }
 
